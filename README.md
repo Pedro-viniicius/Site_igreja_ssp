@@ -33,19 +33,28 @@ Basta abrir o arquivo `index.html` no navegador:
 > As fontes (Google Fonts) carregam pela internet. Sem conexão, o site usa
 > automaticamente fontes do sistema como alternativa.
 
+## WhatsApp configurado
+
+O número oficial informado foi `(35) 9 8898-5464`, usado nos links no formato
+internacional: `https://wa.me/5535988985464`.
+
+> ⚠️ **Confirme o número antes de divulgar.** O número fornecido tinha 8 dígitos
+> na parte local; assumimos que se trata de um celular e adicionamos o `9` inicial
+> (padrão exigido pelo WhatsApp). Para alterar, substitua `5535988985464` em todos
+> os links `https://wa.me/...` de `index.html` e no campo `telephone` do JSON-LD.
+> Há um comentário no topo do `<body>` indicando exatamente onde alterar.
+
 ## Informações que ainda precisam ser preenchidas
 
-Os campos abaixo usam **placeholders** no código. Substitua antes de publicar:
-
-1. **WhatsApp oficial** — procure por `[INSERIR_NUMERO_OFICIAL]` em `index.html`
-   e troque pelo número no formato internacional, ex.: `5535999999999`.
-   Os links seguem o padrão `https://wa.me/5535999999999`.
+1. **Confirmação do WhatsApp** — validar se `5535988985464` está correto (ver acima).
 2. **Logo em alta resolução** — o arquivo atual (`assets/logo.png`) é a imagem
    fornecida. Se houver uma versão em maior resolução ou sem fundo, substitua o
    arquivo mantendo o mesmo nome.
 3. **Nomes dos pastores** — não foram incluídos para não inventar dados. Caso a
    igreja queira exibi-los, podem ser adicionados nas seções "Quem Somos" ou
    "Gabinete Pastoral".
+4. **Fotos reais da comunidade** — não há imagens reais no projeto além do logo.
+   Quando disponíveis, podem ser usadas no hero ou em uma seção "Nossa comunidade".
 
 ## Conteúdo / fontes utilizadas
 

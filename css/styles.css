@@ -25,8 +25,12 @@
   --space-sm: 0.75rem;
   --space-md: 1rem;
   --space-lg: 1.5rem;
-  --space-xl: 2.5rem;
-  --space-2xl: 4rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+
+  /* Vertical rhythm for sections (kept compact to reduce scrolling) */
+  --section-pad: clamp(2.5rem, 5vw, 3.5rem);
+  --section-pad-tight: clamp(2rem, 4vw, 2.75rem);
 
   /* Radius & shadows */
   --radius-sm: 8px;
@@ -140,7 +144,11 @@ ul {
 }
 
 .section {
-  padding: var(--space-2xl) 0;
+  padding: var(--section-pad) 0;
+}
+
+.section-tight {
+  padding: var(--section-pad-tight) 0;
 }
 
 .section-alt {
@@ -150,7 +158,7 @@ ul {
 .section-head {
   text-align: center;
   max-width: 680px;
-  margin: 0 auto var(--space-xl);
+  margin: 0 auto var(--space-lg);
 }
 
 .section-lead {
@@ -181,14 +189,37 @@ ul {
   text-align: center;
 }
 
+.section-actions-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  justify-content: center;
+}
+
+/* Small pill label / tag */
+.tag {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-white);
+  background-color: var(--color-primary);
+  padding: 0.3rem 0.8rem;
+  border-radius: 999px;
+}
+
 /* ---------- Buttons ---------- */
 .btn {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
   font-family: var(--font-body);
   font-weight: 600;
   font-size: 1rem;
   line-height: 1.2;
-  padding: 0.85rem 1.6rem;
+  padding: 0.7rem 1.6rem;
   border-radius: var(--radius-sm);
   border: 2px solid transparent;
   cursor: pointer;
@@ -198,7 +229,8 @@ ul {
 }
 
 .btn-sm {
-  padding: 0.55rem 1.1rem;
+  min-height: 40px;
+  padding: 0.45rem 1.1rem;
   font-size: 0.92rem;
 }
 
@@ -618,16 +650,278 @@ ul {
   color: rgba(255, 255, 255, 0.75);
 }
 
+/* ---------- Hero info chips ---------- */
+.info-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  justify-content: center;
+  margin: var(--space-md) 0 0;
+}
+
+.info-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  padding: 0.45rem 0.9rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--color-text);
+  box-shadow: var(--shadow-sm);
+}
+
+.chip-icon {
+  width: 18px;
+  height: 18px;
+  color: var(--color-primary);
+  flex: none;
+}
+
+/* ---------- First-visit welcome cards ---------- */
+.welcome-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+}
+
+.welcome-card {
+  padding: var(--space-lg);
+}
+
+.welcome-step {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background-color: var(--color-primary-light);
+  color: var(--color-primary);
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: var(--space-sm);
+}
+
+.welcome-card h3 {
+  margin-bottom: var(--space-xs);
+}
+
+.welcome-card p {
+  margin: 0;
+  color: var(--color-text-muted);
+}
+
+/* ---------- Schedule: featured Sunday ---------- */
+.schedule-feature {
+  padding: var(--space-xl);
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow-md);
+  margin-bottom: var(--space-xl);
+}
+
+.schedule-feature-title {
+  font-size: 1.6rem;
+  margin: var(--space-sm) 0 var(--space-md);
+}
+
+.schedule-feature-list {
+  display: grid;
+  gap: var(--space-md);
+}
+
+.schedule-feature-list li {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-md);
+  padding-bottom: var(--space-md);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.schedule-feature-list li:last-child {
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.sf-time {
+  flex: none;
+  min-width: 64px;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.sf-detail {
+  display: flex;
+  flex-direction: column;
+}
+
+.sf-detail strong {
+  font-size: 1.05rem;
+}
+
+.sf-detail small {
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+}
+
+.schedule-subhead {
+  text-align: center;
+  font-size: 1.05rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-text-muted);
+  margin: 0 0 var(--space-lg);
+}
+
+/* ---------- Accordion (history & confession) ---------- */
+.accordion {
+  margin-top: var(--space-xl);
+  display: grid;
+  gap: var(--space-md);
+}
+
+.accordion-item {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+
+.accordion-item summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+  padding: var(--space-md) var(--space-lg);
+  cursor: pointer;
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  color: var(--color-primary-dark);
+  list-style: none;
+  min-height: 44px;
+}
+
+.accordion-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.accordion-icon {
+  position: relative;
+  flex: none;
+  width: 16px;
+  height: 16px;
+}
+
+.accordion-icon::before,
+.accordion-icon::after {
+  content: "";
+  position: absolute;
+  background-color: var(--color-primary);
+  border-radius: 2px;
+}
+
+.accordion-icon::before {
+  top: 7px;
+  left: 0;
+  width: 16px;
+  height: 2px;
+}
+
+.accordion-icon::after {
+  top: 0;
+  left: 7px;
+  width: 2px;
+  height: 16px;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.accordion-item[open] .accordion-icon::after {
+  transform: scaleY(0);
+  opacity: 0;
+}
+
+.accordion-body {
+  padding: 0 var(--space-lg) var(--space-lg);
+}
+
+.accordion-body p {
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-sm);
+}
+
+.accordion-body p:last-child {
+  margin-bottom: 0;
+}
+
+/* ---------- Sticky mobile bottom CTA bar ---------- */
+.mobile-cta-bar {
+  display: none;
+}
+
+@media (max-width: 639px) {
+  .mobile-cta-bar {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 90;
+    gap: 1px;
+    background-color: var(--color-border);
+    border-top: 1px solid var(--color-border);
+    box-shadow: 0 -4px 16px rgba(13, 81, 49, 0.12);
+  }
+
+  .mobile-cta {
+    flex: 1 1 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    min-height: 52px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    background-color: var(--color-white);
+    color: var(--color-primary-dark);
+  }
+
+  .mobile-cta-primary {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+  }
+
+  .mobile-cta-icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  /* Prevent the fixed bar from covering page content */
+  body {
+    padding-bottom: 56px;
+  }
+}
+
 /* ============================================================
    Responsive — tablet
    ============================================================ */
 @media (min-width: 640px) {
   .schedule-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .welcome-grid {
+    grid-template-columns: repeat(3, 1fr);
   }
 
   .social-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .schedule-feature-title {
+    font-size: 1.9rem;
   }
 
   .nav-cta {
@@ -658,6 +952,7 @@ ul {
     border-bottom: none;
     padding: 0.35rem 0.15rem;
     font-size: 0.95rem;
+    white-space: nowrap;
   }
 
   .nav-cta {
@@ -684,6 +979,10 @@ ul {
   }
 
   .hero-actions {
+    justify-content: flex-start;
+  }
+
+  .info-chips {
     justify-content: flex-start;
   }
 
